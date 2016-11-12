@@ -15,7 +15,7 @@ public class DataConfig {
     public LocalSessionFactoryBean sessionFactoryBean() {
         Resource config = new ClassPathResource("hibernate.cfg.xml");
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
-        sessionFactoryBean.setConfigLocation(config);
+        sessionFactoryBean.setConfig Location(config);
         return sessionFactoryBean;
     }
 }
