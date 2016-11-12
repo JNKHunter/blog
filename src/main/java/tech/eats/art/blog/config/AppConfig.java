@@ -1,4 +1,4 @@
-package tech.eats.art.blog;
+package tech.eats.art.blog.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
