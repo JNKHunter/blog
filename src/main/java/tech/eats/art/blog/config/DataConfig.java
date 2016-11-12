@@ -16,6 +16,7 @@ public class DataConfig {
         Resource config = new ClassPathResource("hibernate.cfg.xml");
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setConfigLocation(config);
+        sessionFactoryBean.setPackagesToScan();
         return sessionFactoryBean;
     }
 }
