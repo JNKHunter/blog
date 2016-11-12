@@ -92,3 +92,6 @@ transaction-logs
 project.xcworkspace/
 xcuserdata/
 build/
+
+########## H2
+data
