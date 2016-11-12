@@ -23,5 +23,12 @@ repositories {
 dependencies {
 
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
-
+    // https://mvnrepository.com/artifact/org.springframework/spring-orm
+    compile group: 'org.springframework', name: 'spring-orm', version: '4.3.3.RELEASE'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.4.Final'
+    // https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-dbcp
+    compile group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: '9.0.0.M11'
+    // https://mvnrepository.com/artifact/com.h2database/h2
+    compile group: 'com.h2database', name: 'h2', version: '1.4.193'
 }
