@@ -11,17 +11,17 @@ import org.thymeleaf.spring4.view.ThymeleafViewResolver;
  */
 @Configuration
 public class TemplateConfig {
-
     @Bean
-    public SpringResourceTemplateResolver templateResolver(){
+    public SpringResourceTemplateResolver templateResolver() {
         final SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setCacheable(false);
         templateResolver.setPrefix("classpath:/templates/");
+        templateResolver.setSuffix(".html");
         return templateResolver;
     }
 
     @Bean
-    public SpringTemplateEngine templateEngine(){
+    public SpringTemplateEngine templateEngine() {
         final SpringTemplateEngine springTemplateEngine = new SpringTemplateEngine();
         springTemplateEngine.addTemplateResolver(templateResolver());
         return springTemplateEngine;
