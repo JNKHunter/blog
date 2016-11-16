@@ -1,5 +1,6 @@
 package tech.eats.art.blog.controller;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class BlogController {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    //@Autowired
+    //private SessionFactory sessionFactory;
 
     @RequestMapping("/")
     public String listBlog(Model model){
@@ -22,6 +23,7 @@ public class BlogController {
 
     @RequestMapping("/categories")
     public String listCategories(Model model){
+        //Session session = sessionFactory.openSession();
         return "blog/categories";
     }
 }

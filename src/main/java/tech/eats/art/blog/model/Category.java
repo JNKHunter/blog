@@ -4,18 +4,18 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Created by John on 11/12/16.
+ * Created by John on 11/15/16.
  */
 @Entity
-public class Entry {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
+    private String name;
 
-    @ManyToMany(targetEntity = Category.class)
-    private List<Category> categories;
+    @ManyToMany(targetEntity = Entry.class, mappedBy = "categories")
+    private List<Entry> entries;
 
     public Long getId() {
         return id;
@@ -25,11 +25,11 @@ public class Entry {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 }
