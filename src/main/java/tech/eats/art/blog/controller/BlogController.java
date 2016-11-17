@@ -16,6 +16,7 @@ import java.util.List;
 @Controller
 public class BlogController {
 
+
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -27,6 +28,9 @@ public class BlogController {
     @SuppressWarnings("unchecked")
     @RequestMapping("/categories")
     public String listCategories(Model model) {
+        //We return a LocalSessionFactoryBean which implements the FactoryBean interface.
+        //By including a method annotated with @Bean whose return value is of type LocalSessionFactoryBean,
+        // a SessionFactory is now a candidate for autowiring
         Session session = sessionFactory.openSession();
         List<Category> categories = session.createCriteria(Category.class).list();
         model.addAttribute("categories", categories);
