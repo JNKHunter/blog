@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import tech.eats.art.blog.model.Category;
+import tech.eats.art.blog.service.CategoryService;
 
 import java.util.List;
 
@@ -16,9 +17,8 @@ import java.util.List;
 @Controller
 public class BlogController {
 
-
     @Autowired
-    private SessionFactory sessionFactory;
+    private CategoryService categoryService;
 
     @RequestMapping("/")
     public String listBlog(Model model) {
@@ -28,12 +28,9 @@ public class BlogController {
     @SuppressWarnings("unchecked")
     @RequestMapping("/categories")
     public String listCategories(Model model) {
-        //We return a LocalSessionFactoryBean which implements the FactoryBean interface.
-        //By including a method annotated with @Bean whose return value is of type LocalSessionFactoryBean,
-        // a SessionFactory is now a candidate for autowiring
-        Session session = sessionFactory.openSession();
-        List<Category> categories = session.createCriteria(Category.class).list();
-        session.close();
+
+        List<Category> categories =  categoryService.findAll();
+
         model.addAttribute("categories", categories);
         return "blog/categories";
     }
