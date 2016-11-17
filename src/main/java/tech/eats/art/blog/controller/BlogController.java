@@ -33,6 +33,7 @@ public class BlogController {
         // a SessionFactory is now a candidate for autowiring
         Session session = sessionFactory.openSession();
         List<Category> categories = session.createCriteria(Category.class).list();
+        session.close();
         model.addAttribute("categories", categories);
         return "blog/categories";
     }
