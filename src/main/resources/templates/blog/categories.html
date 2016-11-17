@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head th:replace="layout :: head('Blog Categories')">
+    <head th:replace="layout :: head('Blog Categories ')">
     </head>
 <body>
+    <div class="row">
+        <div th:each="cat : ${categories}" class="col s12 l4">
+            <div class="card" style="background-color:#59b3b3">
+                <div class="card-content">
+                    <div class="card-title">
+                        <a class="name" th:href="@{|/categories/${cat.id}|}" th:text="${cat.name}">Category Name</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
