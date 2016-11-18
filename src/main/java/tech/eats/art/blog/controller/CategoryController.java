@@ -30,6 +30,12 @@ public class CategoryController {
         return "blog/categories";
     }
 
+    @RequestMapping("/categories/add")
+    public String formNewCategory(Model model){
+        model.addAttribute("category", new Category());
+        return "category/form";
+    }
+
     @RequestMapping(value="/categories", method = RequestMethod.POST)
     public String addCategory(Category category){
         //Add category if valid data was received

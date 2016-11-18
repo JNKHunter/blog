@@ -4,13 +4,17 @@
 <body>
 
 <div>
-    <form>
+    <form th:action="@{/categories}" method="post" th:object="${category}">
         <div>
             <h2>New Category</h2>
         </div>
 
         <div>
-            <input type="text" placeholder="Category name" />
+            <input type="text" th:field="*{name}"  placeholder="Category name" />
+        </div>
+
+        <div>
+            <button type="submit">Add</button>
         </div>
     </form>
 </div>
