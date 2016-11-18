@@ -28,5 +28,13 @@ public class CategoryController {
         return "blog/categories";
     }
 
+    public String addCategory(){
+        //Add category if valid data was received
+
+        //Redirect browser to /categories
+
+        return null;
+    }
+
 
 }
