@@ -4,11 +4,13 @@ import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import tech.eats.art.blog.model.Category;
 import tech.eats.art.blog.service.CategoryService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -37,7 +39,10 @@ public class CategoryController {
     }
 
     @RequestMapping(value="/categories", method = RequestMethod.POST)
-    public String addCategory(Category category){
+    public String addCategory(@Valid Category category, BindingResult result){
+        if(result.hasErrors()){
+            return "redirect:/categories/add";
+        }
         //Add category if valid data was received
         categoryService.save(category);
         //Redirect browser to /categories
