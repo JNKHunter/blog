@@ -44,7 +44,7 @@ public class CategoryController {
     @RequestMapping(value="/categories", method = RequestMethod.POST)
     public String addCategory(@Valid Category category, BindingResult result, RedirectAttributes redirectAttributes){
         if(result.hasErrors()){
-            //In
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.category", result);
             redirectAttributes.addFlashAttribute("category", category);
             return "redirect:/categories/add";
         }
